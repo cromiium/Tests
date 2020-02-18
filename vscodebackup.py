@@ -16,8 +16,14 @@ for root, dirs, files in os.walk(harddrive):
         
 full_path = temp_list[0]
 dst_path = os.getcwd()
-dst_path = dst_path[0:3]
+dst_path = dst_path[0:3] + "\\vscodebackup" #TODO: I think I need to clean up the formatting of the dst but it works for now
 
+#TODO: Add a check for if the file exists and rm tree the old file to make room for the new file. (or maybe add a date at the end)
 copytree(full_path, dst_path)
-make_archive("vscodebackup.zip", 'zip', "dst_path\.vscode")
-rmtree("dst_path\.vscode")
+print("Copy Successful")
+'''
+make_archive("E:\\vscodebackup", 'zip', "dst_path\\vscodebackup") #TODO: no archive is made. not sure what to do about that
+print("Archive Successful")
+rmtree("dst_path\.vscode") #TODO: since the make_archive() doesn't go through, I don't think this goes through either
+print("Cleanup Successful")
+'''
